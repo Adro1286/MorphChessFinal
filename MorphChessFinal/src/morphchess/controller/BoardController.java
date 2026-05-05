@@ -198,7 +198,10 @@ public class BoardController
 		//-------------check system------------------------------
         if (isInCheck(opponent)) {
             if (!hasAnyLegalMove(opponent)) {
-                moveHistory.add("CHECKMATE - " + currentTurn + " wins");
+                Piece.pieceColor winner = (currentTurn == Piece.pieceColor.WHITE)
+					? Piece.pieceColor.BLACK
+					: Piece.pieceColor.WHITE;
+				moveHistory.add("CHECKMATE - " + winner + " wins");
                 boardGrid.setDisable(true);
                 return;
             } else {
