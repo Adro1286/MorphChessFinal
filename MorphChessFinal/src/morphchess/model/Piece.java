@@ -193,4 +193,11 @@ public abstract class Piece
 	{ 
 		this.stolenType = type; 
 	}
+
+	public String getDisplayName() {
+	    if (isStolen && stolenType != null) {
+	        return "Morphed " + stolenType;
+	    }
+	    return type.toString();
+	}
 }	
