@@ -132,9 +132,11 @@ public abstract class Piece
 				if(row == startRow && distance == 1)
 				{
 					moves.add(new int[] {nextRow, col});
-					moves.add(new int[] {nextRow+direction, col});
+					if(board[nextRow + direction][col] == null)
+					{
+						moves.add(new int[] {nextRow+direction, col});
+					}
 				}
-				moves.add(new int[] {nextRow, col});
 			}
 			
 			//Capture Logic
