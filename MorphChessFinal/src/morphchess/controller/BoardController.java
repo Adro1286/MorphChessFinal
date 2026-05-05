@@ -356,6 +356,12 @@ public class BoardController
 
 	    char file = (char) ('a' + toCol);
 	    int rank = 8 - toRow;
+
+		if (piece.isStolen())
+		{
+	    	return piece.getStolenType().name().charAt(0) + "" + file + rank;  
+	    }
+		
 	    if (piece.getType() == Piece.pieceType.PAWN)
 		{
 	        return "" + file + rank;
